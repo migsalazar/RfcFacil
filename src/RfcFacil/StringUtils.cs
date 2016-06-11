@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RfcFacil
-{
+{ 
     public class StringUtils
     {
         public static string StripAccents(string s)
