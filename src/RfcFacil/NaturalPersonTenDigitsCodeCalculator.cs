@@ -89,44 +89,95 @@ namespace RfcFacil
         private string BirthdayCode()
         {
 
-            return lastTwoDigitsOf(person.year)
-                    + formattedInTwoDigits(person.month)
-                    + formattedInTwoDigits(person.day);
+            return LastTwoDigitsOf(person.Year)
+                    + FormattedInTwoDigits(person.Month)
+                    + FormattedInTwoDigits(person.Day);
         }
 
         private bool IsFirstLastNameEmpty()
         {
-            throw new NotImplementedException();
-        }
-
-        private string FirstLastNameEmptyForm()
-        {
-            throw new NotImplementedException();
+            return string.IsNullOrEmpty(Normalize(person.FirstLastName));
         }
 
         private bool IsSecondLastNameEmpty()
         {
-            throw new NotImplementedException();
+            return string.IsNullOrEmpty(Normalize(person.SecondLastName));
+        }
+
+        private string FirstLastNameEmptyForm()
+        {
+            return 
+                FirstTwoLettersOf(person.SecondLastName) + 
+                FirstTwoLettersOf(FilterName(person.Name));
         }
 
         private string SecondLastNameEmptyForm()
         {
-            throw new NotImplementedException();
+            return 
+                FirstTwoLettersOf(person.FirstLastName) + 
+                FirstTwoLettersOf(FilterName(person.Name));
         }
 
         private bool IsFirstLastNameIsTooShort()
         {
-            throw new NotImplementedException();
+            return Normalize(person.FirstLastName).Length <= 2;
         }
 
         private string FirstLastNameTooShortForm()
         {
-            throw new NotImplementedException();
+            return 
+                FirstLetterOf(person.FirstLastName) + 
+                FirstLetterOf(person.SecondLastName) + 
+                FirstTwoLettersOf(FilterName(person.Name));
         }
 
         private string NormalForm()
         {
             throw new NotImplementedException();
-        }  
+        }
+
+        private string FirstTwoLettersOf(string word)
+        {
+            string normalizedWord = Normalize(word);
+            
+            return normalizedWord.Substring(0, 2);
+        }
+
+        private string FilterName(string name)
+        {
+            bool isPopularGivenName = false;
+            string rawName = name.Normalize().Trim();
+
+            if (rawName.Contains(" "))
+            {
+                isPopularGivenName = rawName.StartsWith("MARIA") || rawName.StartsWith("JOSE");
+
+                if (isPopularGivenName)
+                {
+                    return rawName.Split(' ')[1];
+                }
+            }
+            return name;
+        }
+
+        private string FirstLetterOf(string word)
+        {
+            string normalizedWord = Normalize(word);
+            
+            return normalizedWord[0].ToString();
+        }
+
+        private string Normalize(string word)
+        {
+            if (string.IsNullOrEmpty(word))
+            {
+                return word;
+            }
+            else
+            {
+                string normalizedWord = StringUtils.stripAccents(word).toUpperCase();
+                return removeSpecialParticles(normalizedWord, SPECIAL_PARTICLES);
+            }
+        }
     }
 }

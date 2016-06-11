@@ -8,9 +8,9 @@ namespace RfcFacil
 {
     internal class Person
     {
-        protected string Name { get; set; }
-        protected int Year { get; set; }
-        protected int Month { get; set; }
-        protected int Day { get; set; }
+        public string Name { get; set; }
+        public int Year { get; set; }
+        public int Month { get; set; }
+        public int Day { get; set; }
     }
 }

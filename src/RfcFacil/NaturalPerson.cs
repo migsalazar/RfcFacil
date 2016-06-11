@@ -7,8 +7,8 @@ namespace RfcFacil
 {
     internal class NaturalPerson : Person
     {
-        protected string FirstLastName { get; set; }
-        protected string SecondLastName { get; set; }
+        public string FirstLastName { get; set; }
+        public string SecondLastName { get; set; }
 
         public NaturalPerson(string name, string firstLastName, string secondLastName, int day, int month, int year)
         {
