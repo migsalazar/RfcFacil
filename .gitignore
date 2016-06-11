@@ -1,0 +1,10 @@
+build/
+release/
+bin
+Bin
+obj
+*.suo
+*.user
+*.csproj.user
+.vs
+.nuget
