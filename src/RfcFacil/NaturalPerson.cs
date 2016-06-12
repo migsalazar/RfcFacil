@@ -15,14 +15,14 @@ namespace RfcFacil
         /// <param name="day"></param>
         /// <param name="month"></param>
         /// <param name="year"></param>
-        public NaturalPerson(string name, string firstLastName, string secondLastName, int day, int month, int year)
+        public NaturalPerson(string name, string firstLastName, string secondLastName, int year, int month, int day)
         {
             this.Name = name;
             this.FirstLastName = firstLastName;
             this.SecondLastName = secondLastName;
-            this.Day = day;
-            this.Month = month;
             this.Year = year;
+            this.Month = month;
+            this.Day = day;    
         }
 
         /// <summary>

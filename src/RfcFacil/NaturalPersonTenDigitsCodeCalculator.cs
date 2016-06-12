@@ -93,7 +93,7 @@ namespace RfcFacil
         {
             DateTime birthday = new DateTime(person.Year, person.Month, person.Day);
 
-            return birthday.ToString("yyyyMMdd");
+            return birthday.ToString("yyMMdd");
         }
 
         /// <summary>

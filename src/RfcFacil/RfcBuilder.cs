@@ -37,7 +37,7 @@ namespace RfcFacil
         /// <returns>instance of RFC (wrapped by static method Rfc.Build)</returns>
         private Rfc BuildForNaturalPerson()
         {
-            NaturalPerson person = new NaturalPerson(this.Name, this.FirstLastName, this.SecondLastName, this.Day, this.Month, this.Year);
+            NaturalPerson person = new NaturalPerson(this.Name, this.FirstLastName, this.SecondLastName, this.Year, this.Month, this.Day);
 
             string tenDigitsCode = new NaturalPersonTenDigitsCodeCalculator(person).Calculate();
             string homoclave = new HomoclaveCalculator(person).Calculate();
