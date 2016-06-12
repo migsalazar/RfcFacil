@@ -5,9 +5,7 @@ namespace RfcFacil
 {
     public class VerificationDigitCalculator
     {
-
-        private string p;
-
+        private readonly string Rfc12Digits;
         private static readonly Dictionary<string, int> Mapping = new Dictionary<string, int>()
         {
             {"0", 0},
@@ -52,22 +50,54 @@ namespace RfcFacil
         };
 
         /// <summary>
-        /// TODO
+        /// 
         /// </summary>
         /// <param name="p"></param>
-        public VerificationDigitCalculator(string p)
+        public VerificationDigitCalculator(string rfc12Digits)
         {
-            // TODO: Complete member initialization
-            this.p = p;
+            this.Rfc12Digits = rfc12Digits;
         }
 
         /// <summary>
-        /// TODO
+        /// 
         /// </summary>
         /// <returns></returns>
-        internal string Calculate()
+        public string Calculate()
         {
-            throw new NotImplementedException();
+            int sum = 0;
+            int reminder;
+
+            for (int i = 0; i < 12; i++)
+            {
+                sum += MapDigit(this.Rfc12Digits[i]) * (13 - i);
+            }
+
+            reminder = sum % 11;
+
+            if (reminder == 0)
+            {
+                return "0";
+            }
+            else
+            {
+                if (reminder == 10)
+                {
+                    return "A";
+                }
+                else
+                {
+                    return (11 - reminder).ToString();
+                }
+            }
+        }
+
+        private int MapDigit(char c)
+        {
+            int outValue = 0; //redundance
+
+            bool hasOutput = Mapping.TryGetValue(c.ToString(), out outValue);
+            
+            return hasOutput ? outValue : 0;
         }
     }
 }
