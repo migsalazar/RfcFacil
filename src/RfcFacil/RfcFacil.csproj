@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FullNameMapping.cs" />
     <Compile Include="HomoclaveCalculator.cs" />
+    <Compile Include="IHomoclavePerson.cs" />
     <Compile Include="JuristicPerson.cs" />
     <Compile Include="JuristicPersonTenDigitsCodeCalculator.cs" />
     <Compile Include="NaturalPerson.cs" />
@@ -48,7 +50,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rfc.cs" />
     <Compile Include="RfcBuilder.cs" />
-    <Compile Include="StringUtils.cs" />
+    <Compile Include="RfcUtils.cs" />
     <Compile Include="VerificationDigitCalculator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

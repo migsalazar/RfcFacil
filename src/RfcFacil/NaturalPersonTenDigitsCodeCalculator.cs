@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace RfcFacil
 {
     internal class NaturalPersonTenDigitsCodeCalculator
     {
         private NaturalPerson person;
+
+        private static readonly string VowelPattern = "[AEIOU]+";
         
-        private static const string VowelPattern = "[AEIOU]+";
-        
-        private static const string[] SpecialParticles = {
+        private static readonly string[] SpecialParticles = {
             "DE", "LA", "LAS", "MC", "VON", "DEL", "LOS", "Y", "MAC", "VAN", "MI"};
 
-        private static const string[] ForbiddenWords = {
+        private static readonly string[] ForbiddenWords = {
             "BUEI", "BUEY", "CACA", "CACO", "CAGA", "KOGE", "KAKA", "MAME", "KOJO", "KULO",
             "CAGO", "COGE", "COJE", "COJO", "FETO", "JOTO", "KACO", "KAGO", "MAMO", "MEAR", "MEON",
             "MION", "MOCO", "MULA", "PEDA", "PEDO", "PENE", "PUTA", "PUTO", "QULO", "RATA", "RUIN"
@@ -88,10 +91,9 @@ namespace RfcFacil
 
         private string BirthdayCode()
         {
+            DateTime birthday = new DateTime(person.Year, person.Month, person.Day);
 
-            return LastTwoDigitsOf(person.Year)
-                    + FormattedInTwoDigits(person.Month)
-                    + FormattedInTwoDigits(person.Day);
+            return birthday.ToString("yyyyMMdd");
         }
 
         private bool IsFirstLastNameEmpty()
@@ -133,7 +135,25 @@ namespace RfcFacil
 
         private string NormalForm()
         {
-            throw new NotImplementedException();
+            return 
+                FirstLetterOf(person.FirstLastName) + 
+                FirstVowelExcludingFirstCharacterOf(person.FirstLastName) + 
+                FirstLetterOf(person.SecondLastName) + 
+                FirstLetterOf(FilterName(person.Name));
+        }
+
+        private string FirstVowelExcludingFirstCharacterOf(string word)
+        {
+            string normalizedWord = Normalize(word).Substring(1);
+            
+            Match m = Regex.Match(normalizedWord, VowelPattern);
+            
+            if (m.Length <= 0)
+            {
+                throw new ArgumentException("Word doesn't contain a vowel: " + normalizedWord);
+            }
+
+            return normalizedWord[m.Index].ToString();
         }
 
         private string FirstTwoLettersOf(string word)
@@ -146,7 +166,7 @@ namespace RfcFacil
         private string FilterName(string name)
         {
             bool isPopularGivenName = false;
-            string rawName = name.Normalize().Trim();
+            string rawName = Normalize(name).Trim();
 
             if (rawName.Contains(" "))
             {
@@ -175,9 +195,35 @@ namespace RfcFacil
             }
             else
             {
-                string normalizedWord = StringUtils.stripAccents(word).toUpperCase();
-                return removeSpecialParticles(normalizedWord, SPECIAL_PARTICLES);
+                string normalizedWord = RfcUtils.StripAccents(word).ToUpper();
+                return RemoveSpecialParticles(normalizedWord, SpecialParticles);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="normalizedWord"></param>
+        /// <param name="SpecialParticles"></param>
+        /// <returns></returns>
+        private string RemoveSpecialParticles(string normalizedWord, string[] SpecialParticles)
+        {
+            StringBuilder newWord = new StringBuilder(normalizedWord);
+
+            foreach(var particle in SpecialParticles)
+            {
+                var particlePositions = new [] { particle + " ", " " + particle };
+
+                foreach(var p in particlePositions)
+                {
+                    while (newWord.ToString().Contains(p)) {
+                        int i = newWord.ToString().IndexOf(p);
+                        newWord.Remove(i, i + p.ToString().Length);
+                    }
+                }
+            }
+
+            return newWord.ToString();
         }
     }
 }

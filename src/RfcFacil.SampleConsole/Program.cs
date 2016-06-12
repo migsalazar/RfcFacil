@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RfcFacil.SampleConsole
@@ -10,7 +11,7 @@ namespace RfcFacil.SampleConsole
     {
         static void Main(string[] args)
         {
-            var rfc = RfcBuilder.ForJuristicPerson()
+            var rfc = RfcBuilder.ForNaturalPerson()
                                 .WithName("Miguel")
                                 .WithFirstLastName("Salazar")
                                 .WithSecondLastName("Santillán")
