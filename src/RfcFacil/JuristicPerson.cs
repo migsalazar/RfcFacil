@@ -12,6 +12,13 @@ namespace RfcFacil
         private int Month;
         private int Year;
 
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="Day"></param>
+        /// <param name="Month"></param>
+        /// <param name="Year"></param>
         public JuristicPerson(string Name, int Day, int Month, int Year)
         {
             // TODO: Complete member initialization

@@ -10,6 +10,15 @@ namespace RfcFacil
         public string FirstLastName { get; set; }
         public string SecondLastName { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="firstLastName"></param>
+        /// <param name="secondLastName"></param>
+        /// <param name="day"></param>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
         public NaturalPerson(string name, string firstLastName, string secondLastName, int day, int month, int year)
         {
             this.Name = name;
@@ -20,6 +29,10 @@ namespace RfcFacil
             this.Year = year;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string GetFullNameForHomoclave()
         {
             return string.Format("{0} {1} {2}", this.FirstLastName, this.SecondLastName, this.Name);

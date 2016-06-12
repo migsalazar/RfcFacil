@@ -15,6 +15,10 @@ namespace RfcFacil
             this.person = person;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <returns></returns>
         internal string Calculate()
         {
             throw new NotImplementedException();

@@ -12,12 +12,19 @@ namespace RfcFacil
         public string Homoclave { get; private set; }
         public string VerificationDigit { get; private set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tenDigitsCode"></param>
+        /// <param name="homoclave"></param>
+        /// <param name="verificationDigit"></param>
         private Rfc(string tenDigitsCode, string homoclave, string verificationDigit)
         {
             this.TenDigitsCode = tenDigitsCode;
             this.Homoclave = homoclave;
             this.VerificationDigit = verificationDigit;
         }
+
 
         public static Rfc Build(string tenDigitsCode, string homoclave, string verificationDigit)
         {

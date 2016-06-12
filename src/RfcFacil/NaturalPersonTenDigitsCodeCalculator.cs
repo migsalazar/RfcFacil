@@ -89,6 +89,10 @@ namespace RfcFacil
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private string BirthdayCode()
         {
             DateTime birthday = new DateTime(person.Year, person.Month, person.Day);
@@ -96,16 +100,28 @@ namespace RfcFacil
             return birthday.ToString("yyyyMMdd");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private bool IsFirstLastNameEmpty()
         {
             return string.IsNullOrEmpty(Normalize(person.FirstLastName));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private bool IsSecondLastNameEmpty()
         {
             return string.IsNullOrEmpty(Normalize(person.SecondLastName));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private string FirstLastNameEmptyForm()
         {
             return 
@@ -113,6 +129,10 @@ namespace RfcFacil
                 FirstTwoLettersOf(FilterName(person.Name));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private string SecondLastNameEmptyForm()
         {
             return 
@@ -120,11 +140,19 @@ namespace RfcFacil
                 FirstTwoLettersOf(FilterName(person.Name));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private bool IsFirstLastNameIsTooShort()
         {
             return Normalize(person.FirstLastName).Length <= 2;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private string FirstLastNameTooShortForm()
         {
             return 
@@ -133,6 +161,10 @@ namespace RfcFacil
                 FirstTwoLettersOf(FilterName(person.Name));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private string NormalForm()
         {
             return 
@@ -142,6 +174,11 @@ namespace RfcFacil
                 FirstLetterOf(FilterName(person.Name));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
         private string FirstVowelExcludingFirstCharacterOf(string word)
         {
             string normalizedWord = Normalize(word).Substring(1);
@@ -156,6 +193,11 @@ namespace RfcFacil
             return normalizedWord[m.Index].ToString();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
         private string FirstTwoLettersOf(string word)
         {
             string normalizedWord = Normalize(word);
@@ -163,6 +205,11 @@ namespace RfcFacil
             return normalizedWord.Substring(0, 2);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         private string FilterName(string name)
         {
             bool isPopularGivenName = false;
@@ -179,7 +226,12 @@ namespace RfcFacil
             }
             return name;
         }
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
         private string FirstLetterOf(string word)
         {
             string normalizedWord = Normalize(word);
@@ -187,6 +239,11 @@ namespace RfcFacil
             return normalizedWord[0].ToString();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
         private string Normalize(string word)
         {
             if (string.IsNullOrEmpty(word))
