@@ -25,12 +25,22 @@ namespace RfcFacil
             this.VerificationDigit = verificationDigit;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tenDigitsCode"></param>
+        /// <param name="homoclave"></param>
+        /// <param name="verificationDigit"></param>
+        /// <returns></returns>
         public static Rfc Build(string tenDigitsCode, string homoclave, string verificationDigit)
         {
             return new Rfc(tenDigitsCode, homoclave, verificationDigit);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return this.TenDigitsCode + this.Homoclave + this.VerificationDigit;
