@@ -13,7 +13,7 @@ namespace RfcFacil
         private int PairsOfDigitsSum;
         private string Homoclave;
         private static readonly string HomoclaveDigits = "123456789ABCDEFGHIJKLMNPQRSTUVWXYZ";
-        private static readonly Dictionary<string, string> fullNameMapping = new Dictionary<string, string>()
+        private static readonly Dictionary<string, string> FullNameMapping = new Dictionary<string, string>()
         {
             {" ", "00"},
             {"0", "00"},
@@ -61,75 +61,85 @@ namespace RfcFacil
             IHomoclavePerson = person;
         }
 
-        public String calculate() {
+        public string Calculate() {
 
-            normalizeFullName();
-            mapFullNameToDigitsCode();
-            sumPairsOfDigits();
-            buildHomoclave();
+            NormalizeFullName();
+            MapFullNameToDigitsCode();
+            SumPairsOfDigits();
+            BuildHomoclave();
 
             return Homoclave;
         }
 
-        private void buildHomoclave() {
+        private void BuildHomoclave() {
 
             int lastThreeDigits = PairsOfDigitsSum % 1000;
             int quo = lastThreeDigits / 34;
             int reminder = lastThreeDigits % 34;
-            Homoclave = String.valueOf(HOMOCLAVE_DIGITS.charAt(quo))
-                    + String.valueOf(HOMOCLAVE_DIGITS.charAt(reminder));
+
+            Homoclave = HomoclaveDigits[quo].ToString() + HomoclaveDigits[reminder].ToString();
         }
 
-        private void sumPairsOfDigits() {
+        private void SumPairsOfDigits() {
 
             PairsOfDigitsSum = 0;
-            for (int i = 0; i < MappedFullName.length() - 1; i++) {
-                int intNum1 = Integer.parseInt(MappedFullName.substring(i, i + 2));
-                int intNum2 = Integer.parseInt(MappedFullName.substring(i + 1, i + 2));
+
+            for (int i = 0; i < MappedFullName.Length - 1; i++) {
+                int intNum1 = int.Parse(MappedFullName.Substring(i, i + 2));
+
+                int intNum2 = int.Parse(MappedFullName.Substring(i + 1, i + 2));
+
                 PairsOfDigitsSum += intNum1 * intNum2;
             }
         }
 
-        private void mapFullNameToDigitsCode() {
+        private void MapFullNameToDigitsCode() {
 
             MappedFullName = "0";
-            for (int i = 0; i < FullName.length(); i++) {
-                MappedFullName += mapCharacterToTwoDigitCode(String.valueOf(FullName.charAt(i)));
+
+            for (int i = 0; i < FullName.Length; i++) {
+                MappedFullName += MapCharacterToTwoDigitCode( FullName[i].ToString());
             }
         }
 
-        private String mapCharacterToTwoDigitCode(String c) {
+        private string MapCharacterToTwoDigitCode(string c) {
+            
+            string outValue = "";
 
-            if (!FullNameMapping.containsKey(c)) {
-                throw new IllegalArgumentException("No two-digit-code mapping for char: " + c);
-            } else {
-                return FullNameMapping.get(c);
-            }
+            if (!FullNameMapping.TryGetValue(c, out outValue)) {
+                throw new ArgumentException("No two-digit-code mapping for char: " + c);
+            } 
+
+            return outValue;
         }
 
-        private void normalizeFullName() {
+        private void NormalizeFullName() {
 
-            String rawFullName = IHomoclavePerson.getFullNameForHomoclave().toUpperCase();
+            string rawFullName = IHomoclavePerson.GetFullNameForHomoclave().ToUpper();
 
-            FullName = StringUtils.stripAccents(rawFullName);
-            FullName = FullName.replaceAll("[\\-\\.',]", ""); // remove .'-,
-            FullName = addMissingCharToFullName(rawFullName, 'Ñ');
+            FullName = RfcUtils.StripAccents(rawFullName);
+            FullName = FullName.Replace("[\\-\\.',]", "");
+            FullName = AddMissingCharToFullName(rawFullName, 'Ñ');
 
         }
 
-        private String addMissingCharToFullName(String rawFullName, char missingChar) {
+        private string AddMissingCharToFullName(string rawFullName, char missingChar) {
 
-            int index = rawFullName.indexOf(missingChar);
+            StringBuilder newFullName;
+            int index = rawFullName.IndexOf(missingChar);
+
             if (index == -1) {
                 return FullName;
             }
 
-            StringBuilder newFullName = new StringBuilder(FullName);
+            newFullName = new StringBuilder(FullName);
+
             while (index >= 0) {
-                newFullName.setCharAt(index, missingChar);
-                index = rawFullName.indexOf(missingChar, index + 1);
+                newFullName[index] =  missingChar;
+                index = rawFullName.IndexOf(missingChar, index + 1);
             }
-            return newFullName.toString();
+
+            return newFullName.ToString();
         }
     }
 }

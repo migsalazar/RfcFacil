@@ -57,13 +57,7 @@ namespace RfcFacil
         /// <returns>instance of RFC (wrapped by static method Rfc.Build)</returns>
         private Rfc BuildForJuristicPerson()
         {
-            JuristicPerson person = new JuristicPerson(this.Name, this.Day, this.Month, this.Year);
-
-            string tenDigitsCode = new JuristicPersonTenDigitsCodeCalculator(person).Calculate();
-            string homoclave = new HomoclaveCalculator(person).Calculate();
-            string verificationDigit = new VerificationDigitCalculator(tenDigitsCode + homoclave).Calculate();
-
-            return Rfc.Build(tenDigitsCode, homoclave, verificationDigit);
+            throw new NotImplementedException();
         }
 
         /// <summary>

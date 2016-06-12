@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RfcFacil
 {
-    internal class NaturalPerson : Person
+    internal class NaturalPerson : Person, IHomoclavePerson
     {
         public string FirstLastName { get; set; }
         public string SecondLastName { get; set; }
@@ -20,13 +20,9 @@ namespace RfcFacil
             this.Year = year;
         }
 
-        /// <summary>
-        /// String representation of NaturalPerson object
-        /// </summary>
-        /// <returns>string FullName</returns>
-        public override string ToString()
+        public string GetFullNameForHomoclave()
         {
-            return string.Format("{0} {1} {2}", this.FirstLastName, this.SecondLastName, this.Name);            
+            return string.Format("{0} {1} {2}", this.FirstLastName, this.SecondLastName, this.Name);
         }
     }
 }

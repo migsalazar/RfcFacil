@@ -8,6 +8,6 @@ namespace RfcFacil
 {
     public interface IHomoclavePerson
     {
-        string getFullNameForHomoclave();
+        string GetFullNameForHomoclave();
     }
 }
