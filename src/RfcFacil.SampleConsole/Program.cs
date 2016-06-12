@@ -7,10 +7,10 @@ namespace RfcFacil.SampleConsole
         static void Main(string[] args)
         {
             var rfc = RfcBuilder.ForNaturalPerson()
-                                .WithName("Miguel")
+                                .WithName("Miguel Angel")
                                 .WithFirstLastName("Salazar")
                                 .WithSecondLastName("Santillán")
-                                .WithDate(1987, 04, 15)
+                                .WithDate(1987, 4, 15)
                                 .Build();
 
             Console.WriteLine(rfc);

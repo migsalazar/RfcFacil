@@ -9,7 +9,7 @@ namespace RfcFacil
         private static IHomoclavePerson IHomoclavePerson;
         private string FullName;
         private string MappedFullName;
-        private int PairsOfDigitsSum;
+        private long PairsOfDigitsSum;
         private string Homoclave;
         private static readonly string HomoclaveDigits = "123456789ABCDEFGHIJKLMNPQRSTUVWXYZ";
         private static readonly Dictionary<string, string> FullNameMapping = new Dictionary<string, string>()
@@ -72,7 +72,7 @@ namespace RfcFacil
 
         private void BuildHomoclave() {
 
-            int lastThreeDigits = PairsOfDigitsSum % 1000;
+            int lastThreeDigits = (int) PairsOfDigitsSum % 1000;
             int quo = lastThreeDigits / 34;
             int reminder = lastThreeDigits % 34;
 
@@ -84,9 +84,10 @@ namespace RfcFacil
             PairsOfDigitsSum = 0;
 
             for (int i = 0; i < MappedFullName.Length - 1; i++) {
-                int intNum1 = int.Parse(MappedFullName.Substring(i, i + 2));
 
-                int intNum2 = int.Parse(MappedFullName.Substring(i + 1, i + 2));
+                long intNum1 = long.Parse(MappedFullName.Substring(i, 2));
+
+                long intNum2 = long.Parse(MappedFullName.Substring(i + 1, 1));
 
                 PairsOfDigitsSum += intNum1 * intNum2;
             }
@@ -97,7 +98,7 @@ namespace RfcFacil
             MappedFullName = "0";
 
             for (int i = 0; i < FullName.Length; i++) {
-                MappedFullName += MapCharacterToTwoDigitCode( FullName[i].ToString());
+                MappedFullName += MapCharacterToTwoDigitCode(FullName[i].ToString());
             }
         }
 
