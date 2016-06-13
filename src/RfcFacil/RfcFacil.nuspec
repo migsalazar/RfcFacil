@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>1.0.0</version>
+    <title>RfcFacil .NET</title>
+    <authors>Mig Salazar</authors>
+    <owners>Mig Salazar</owners>
+    <licenseUrl>https://github.com/migsalazar/RfcFacil/blob/master/LICENSE</licenseUrl>
+    <projectUrl>http://migsalazar.github.io/RfcFacil</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/migsalazar/RfcFacil/master/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Liberaría para el cálculo del RFC (Registro Federal de Contribuyentes) en .NET</description>
+    <releaseNotes>TODO: JuristicPerson</releaseNotes>
+    <copyright></copyright>
+    <tags>RFC SAT .NET</tags>
+  </metadata>
+</package>
