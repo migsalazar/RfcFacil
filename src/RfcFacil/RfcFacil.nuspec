@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>RfcFacil .NET</title>
     <authors>Mig Salazar</authors>
     <owners>Mig Salazar</owners>
@@ -11,7 +11,7 @@
     <iconUrl>https://raw.githubusercontent.com/migsalazar/RfcFacil/master/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Liberaría para el cálculo del RFC (Registro Federal de Contribuyentes) en .NET</description>
-    <releaseNotes>TODO: JuristicPerson</releaseNotes>
+    <releaseNotes>Add internal instead public</releaseNotes>
     <copyright></copyright>
     <tags>RFC SAT .NET</tags>
   </metadata>
