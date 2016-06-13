@@ -48,7 +48,7 @@ Cabe advertir que sólo la Secretaría de Hacienda y Crédito Público, a travé
 - Reporta errores o sugerencias en: [https://github.com/migsalazar/RfcFacil/issues](https://github.com/migsalazar/RfcFacil/issues)
 
 ## Agradecimientos
-RfcFacil .NET esta basado en la librería de [rfc-facil para JAVA](http://josketres.github.io/rfc-facil/) escrita por [josketres](https://github.com/josketres). Gracias!
+RfcFacil .NET es una versión para .NET de la librería [rfc-facil para JAVA](http://josketres.github.io/rfc-facil/) escrita por [josketres](https://github.com/josketres). Gracias!
 
 ## Licencia
 The MIT License (MIT)
