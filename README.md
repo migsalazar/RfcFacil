@@ -29,7 +29,7 @@ var rfc = RfcBuilder.ForNaturalPerson()
 
 - Personas morales
 ```csharp
-var rfc = RfcBuilder.ForJurisitcPerson()
+var rfc = RfcBuilder.ForJuristicPerson()
 					.WithName("Mig SA de CV")
 					.WithDate(1987, 4, 15)
 					.Build();
