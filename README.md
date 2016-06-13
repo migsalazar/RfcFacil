@@ -1,5 +1,3 @@
-# RfcFacil .NET
-
 ![](https://raw.githubusercontent.com/migsalazar/RfcFacil/master/logo.png)
 
 Librería para el cálculo del RFC (Registro Federal de Contribuyentes) del SAT (Servicio de Administración Tributaria) en .NET 
@@ -12,27 +10,52 @@ La documentación completa se encuentra en [migsalazar.com/RfcFacil](http://migs
 
 1.- Instala RfcFacil en tu proyecto [vía NuGet](https://www.nuget.org/packages/RfcFacil/):
 
-			PM> Install-Package RfcFacil
+```
+PM> Install-Package RfcFacil
+```
 
-2.- Construir RFC:
+2.- Calcular el RFC es muy sencillo:
 
 - Personas físicas
 
+C#
 ```csharp
-var rfc = RfcBuilder.ForNaturalPerson()
-					.WithName("Miguel Angel")
-					.WithFirstLastName("Salazar")
-					.WithSecondLastName("Santillán")
-					.WithDate(1987, 4, 15)
-					.Build();
+using RfcFacil;
+namespace ConsoleApplication {
+    class Program {
+        static void Main(string[] args) {
+            var rfc = RfcBuilder.ForNaturalPerson()
+                                .WithName("Miguel Angel")
+                                .WithFirstLastName("Salazar")
+                                .WithSecondLastName("Santillan")
+                                .WithDate(1987, 04, 15)
+                                .Build();
+
+            Console.WriteLine(rfc.ToString());
+        }
+    }
+}
+```
+VB
+```vb
+Imports RfcFacil
+Module Module1
+    Sub Main()
+        Dim rfc = RfcBuilder.ForNaturalPerson() _
+                            .WithName("Miguel Angel") _
+                            .WithFirstLastName("Salazar") _
+                            .WithSecondLastName("Santillan") _
+                            .WithDate(1987, 4, 15)
+
+        Console.Write(rfc)
+    End Sub
+End Module
 ```
 
 - Personas morales
+
 ```csharp
-var rfc = RfcBuilder.ForJuristicPerson()
-					.WithName("Mig SA de CV")
-					.WithDate(1987, 4, 15)
-					.Build();
+//coming soon :B
 ```
 
 ## Fuente
@@ -48,7 +71,7 @@ Cabe advertir que sólo la Secretaría de Hacienda y Crédito Público, a travé
 - Reporta errores o sugerencias en: [https://github.com/migsalazar/RfcFacil/issues](https://github.com/migsalazar/RfcFacil/issues)
 
 ## Agradecimientos
-RfcFacil .NET es una versión para .NET de la librería [rfc-facil para JAVA](http://josketres.github.io/rfc-facil/) escrita por [josketres](https://github.com/josketres). Gracias!
+RfcFacil .NET es una versión para .NET de la librería [rfc-facil](http://josketres.github.io/rfc-facil/) escrita por [josketres](https://github.com/josketres). Gracias!
 
 ## Licencia
 The MIT License (MIT)
