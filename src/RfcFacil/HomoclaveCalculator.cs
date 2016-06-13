@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RfcFacil
 {
-    class HomoclaveCalculator
+    internal class HomoclaveCalculator
     {
         private static IHomoclavePerson IHomoclavePerson;
         private string FullName;

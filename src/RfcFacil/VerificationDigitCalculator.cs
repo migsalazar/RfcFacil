@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RfcFacil
 {
-    public class VerificationDigitCalculator
+    internal class VerificationDigitCalculator
     {
         private readonly string Rfc12Digits;
         private static readonly Dictionary<string, int> Mapping = new Dictionary<string, int>()

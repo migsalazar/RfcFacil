@@ -2,7 +2,7 @@
 
 namespace RfcFacil
 {
-    class JuristicPersonTenDigitsCodeCalculator
+    internal class JuristicPersonTenDigitsCodeCalculator
     {
         private JuristicPerson person;
 

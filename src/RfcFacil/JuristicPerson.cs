@@ -1,7 +1,7 @@
 ﻿
 namespace RfcFacil
 {
-    class JuristicPerson
+    internal class JuristicPerson
     {
         private string Name;
         private int Day;
