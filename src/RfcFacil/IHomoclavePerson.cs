@@ -1,7 +1,7 @@
 ﻿
 namespace RfcFacil
 {
-    public interface IHomoclavePerson
+    internal interface IHomoclavePerson
     {
         string GetFullNameForHomoclave();
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RfcFacil
 { 
-    public static class RfcUtils
+    internal static class RfcUtils
     {
         /// <summary>
         /// Remove diacritics, ex:
