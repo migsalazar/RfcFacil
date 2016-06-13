@@ -1,4 +1,3 @@
-
 # RfcFacil .NET
 
 ![](https://raw.githubusercontent.com/migsalazar/RfcFacil/master/logo.png)
@@ -9,7 +8,9 @@ Librería para el cálculo del RFC (Registro Federal de Contribuyentes) del SAT 
 
 ## Uso
 
-1.- Instala RfcFacil en tu proyecto vía NuGet:
+La documentación completa se encuentra en [migsalazar.com/RfcFacil](http://migsalazar.com/RfcFacil)
+
+1.- Instala RfcFacil en tu proyecto [vía NuGet](https://www.nuget.org/packages/RfcFacil/):
 
 			PM> Install-Package RfcFacil
 
@@ -22,8 +23,6 @@ var rfc = RfcBuilder.ForNaturalPerson()
 					.WithSecondLastName("Santillán")
 					.WithDate(1987, 4, 15)
 					.Build();
-
-Console.WriteLine(rfc);
 ```
 
 2.- Construir RFC para personas morales
@@ -32,8 +31,6 @@ var rfc = RfcBuilder.ForJurisitcPerson()
 					.WithName("Mig SA de CV")
 					.WithDate(1987, 4, 15)
 					.Build();
-
-Console.WriteLine(rfc);
 ```
 
 ## Fuente
@@ -41,9 +38,12 @@ Esta librería se basa en documentación oficial obtenida por medio del IFAI (In
 
 Cabe advertir que sólo la Secretaría de Hacienda y Crédito Público, a través del Servicio de Administración Tributaria, es la única instancia que oficialmente asigna las claves de RFC a los contribuyentes que así lo soliciten, a partir de la aplicación de este procedimiento a la base de datos del Padrón de Contribuyentes, con la finalidad de identificar homonimias y evitar la duplicidad de registros.
 
-# En otros lenguajes
+## En otros lenguajes
 - JAVA [josketres/rfc-facil](https://github.com/josketres/rfc-facil) - (RfcFacil .NET esta basado en la librería de [rfc-facil para JAVA](http://josketres.github.io/rfc-facil/) escrita por [josketres](https://github.com/josketres). !Gracias!)
 - Ruby [acrogenesis/rfc_facil](https://github.com/acrogenesis/rfc_facil)
 
-# Licencia
+## Contribuciones
+- Reporta errores o sugerencias en: [https://github.com/migsalazar/RfcFacil/issues](https://github.com/migsalazar/RfcFacil/issues)
+
+## Licencia
 The MIT License (MIT)
