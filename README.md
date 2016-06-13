@@ -11,7 +11,7 @@ Librería para el cálculo del RFC (Registro Federal de Contribuyentes) del SAT 
 
 Vía NuGet:
 
-			PM> Install-Package AutoMapper
+			PM> Install-Package RfcFacil
 
 ```csharp
 var rfc = RfcBuilder.ForNaturalPerson()
