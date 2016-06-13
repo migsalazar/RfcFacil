@@ -2,7 +2,7 @@
 
 ![](https://raw.githubusercontent.com/migsalazar/RfcFacil/master/logo.png)
 
-Librería para el cálculo del RFC (Registro Federal de Contribuyentes) del SAT (Servicio de Administración Tributaria) en México - en C# .NET 
+Librería para el cálculo del RFC (Registro Federal de Contribuyentes) del SAT (Servicio de Administración Tributaria) en .NET 
 
 [![Build status](https://ci.appveyor.com/api/projects/status/jnui923swgs8e7xt/branch/master?svg=true)](https://ci.appveyor.com/project/migsalazar/rfcfacil/branch/master)
 
@@ -14,7 +14,9 @@ La documentación completa se encuentra en [migsalazar.com/RfcFacil](http://migs
 
 			PM> Install-Package RfcFacil
 
-2.- Construir RFC para personas físicas
+2.- Construir RFC:
+
+- Personas físicas
 
 ```csharp
 var rfc = RfcBuilder.ForNaturalPerson()
@@ -25,7 +27,7 @@ var rfc = RfcBuilder.ForNaturalPerson()
 					.Build();
 ```
 
-2.- Construir RFC para personas morales
+- Personas morales
 ```csharp
 var rfc = RfcBuilder.ForJurisitcPerson()
 					.WithName("Mig SA de CV")
@@ -39,11 +41,14 @@ Esta librería se basa en documentación oficial obtenida por medio del IFAI (In
 Cabe advertir que sólo la Secretaría de Hacienda y Crédito Público, a través del Servicio de Administración Tributaria, es la única instancia que oficialmente asigna las claves de RFC a los contribuyentes que así lo soliciten, a partir de la aplicación de este procedimiento a la base de datos del Padrón de Contribuyentes, con la finalidad de identificar homonimias y evitar la duplicidad de registros.
 
 ## En otros lenguajes
-- JAVA [josketres/rfc-facil](https://github.com/josketres/rfc-facil) - (RfcFacil .NET esta basado en la librería de [rfc-facil para JAVA](http://josketres.github.io/rfc-facil/) escrita por [josketres](https://github.com/josketres). !Gracias!)
+- JAVA [josketres/rfc-facil](https://github.com/josketres/rfc-facil)
 - Ruby [acrogenesis/rfc_facil](https://github.com/acrogenesis/rfc_facil)
 
 ## Contribuciones
 - Reporta errores o sugerencias en: [https://github.com/migsalazar/RfcFacil/issues](https://github.com/migsalazar/RfcFacil/issues)
+
+## Agradecimientos
+RfcFacil .NET esta basado en la librería de [rfc-facil para JAVA](http://josketres.github.io/rfc-facil/) escrita por [josketres](https://github.com/josketres). Gracias!
 
 ## Licencia
 The MIT License (MIT)
