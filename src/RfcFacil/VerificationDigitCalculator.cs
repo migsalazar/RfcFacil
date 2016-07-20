@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace RfcFacil
 {
@@ -79,11 +78,10 @@ namespace RfcFacil
             {
                 return "0";
             }
-            if (reminder > 0)
+            else
             {
-                return MapValue(11 - reminder);
+                return (11 - reminder).ToString("X");
             }
-            return null;
         }
 
         private int MapDigit(char c)
@@ -93,12 +91,6 @@ namespace RfcFacil
             bool hasOutput = Mapping.TryGetValue(c.ToString(), out outValue);
             
             return hasOutput ? outValue : 0;
-        }
-        
-        private string MapValue(int i)
-        {
-            var key = Mapping.FirstOrDefault(x => x.Value == i).Key;
-            return key;
         }
     }
 }
