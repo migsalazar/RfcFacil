@@ -55,7 +55,7 @@ namespace RfcFacil
         /// <param name="p"></param>
         public VerificationDigitCalculator(string rfc12Digits)
         {
-            this.Rfc12Digits = rfc12Digits;
+            this.Rfc12Digits = rfc12Digits.PadLeft(12);
         }
 
         /// <summary>
@@ -78,17 +78,11 @@ namespace RfcFacil
             {
                 return "0";
             }
-            else
+            if (reminder > 0)
             {
-                if (reminder == 10)
-                {
-                    return "A";
-                }
-                else
-                {
-                    return (11 - reminder).ToString();
-                }
+                return MapValue(11 - reminder);
             }
+            return null;
         }
 
         private int MapDigit(char c)
@@ -98,6 +92,12 @@ namespace RfcFacil
             bool hasOutput = Mapping.TryGetValue(c.ToString(), out outValue);
             
             return hasOutput ? outValue : 0;
+        }
+        
+        private string MapValue(int i)
+        {
+            var key = Mapping.FirstOrDefault(x => x.Value == i).Key;
+            return key;
         }
     }
 }
