@@ -72,6 +72,3 @@ Cabe advertir que sólo la Secretaría de Hacienda y Crédito Público, a travé
 
 ## Agradecimientos
 RfcFacil .NET es una versión para .NET de la librería [rfc-facil](http://josketres.github.io/rfc-facil/) escrita por [josketres](https://github.com/josketres). Gracias!
-
-## Licencia
-The MIT License (MIT)
