@@ -6,8 +6,6 @@ Librería para el cálculo del RFC (Registro Federal de Contribuyentes) del SAT 
 
 ## Uso
 
-La documentación completa se encuentra en [migsalazar.com/RfcFacil](http://migsalazar.com/RfcFacil)
-
 1.- Instala RfcFacil en tu proyecto [vía NuGet](https://www.nuget.org/packages/RfcFacil/):
 
 ```
