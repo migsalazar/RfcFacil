@@ -55,7 +55,7 @@ namespace RfcFacil
         /// <param name="p"></param>
         public VerificationDigitCalculator(string rfc12Digits)
         {
-            this.Rfc12Digits = rfc12Digits;
+            this.Rfc12Digits = rfc12Digits.PadLeft(12);
         }
 
         /// <summary>
@@ -80,14 +80,7 @@ namespace RfcFacil
             }
             else
             {
-                if (reminder == 10)
-                {
-                    return "A";
-                }
-                else
-                {
-                    return (11 - reminder).ToString();
-                }
+                return (11 - reminder).ToString("X");
             }
         }
 
