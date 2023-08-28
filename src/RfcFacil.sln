@@ -1,11 +1,10 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RfcFacil", "RfcFacil\RfcFacil.csproj", "{67C4B9AB-12C1-4ADD-8841-09233EBDEB99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RfcFacil", "RfcFacil\RfcFacil.csproj", "{67C4B9AB-12C1-4ADD-8841-09233EBDEB99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RfcFacil.SampleConsole", "RfcFacil.SampleConsole\RfcFacil.SampleConsole.csproj", "{431B7D75-B177-43CB-905A-AC1ADE02A8C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RfcFacil.SampleConsole", "RfcFacil.SampleConsole\RfcFacil.SampleConsole.csproj", "{431B7D75-B177-43CB-905A-AC1ADE02A8C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
